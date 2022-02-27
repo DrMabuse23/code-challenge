@@ -1,0 +1,266 @@
+<h4>{{ pageTitle }}</h4>
+VFNR:
+<select class="form-control"
+        (change)="onSelected($any($event.target).value)">
+  <option value="">- Display All -</option>
+  <option *ngFor="let vfnr of vfnr"
+          [value]="vfnr">{{ vfnr }}</option>
+</select>
+<br>
+Create:
+<form (ngSubmit)="save(clientMatrixForm.value)"
+      [formGroup]="clientMatrixForm">
+  <label
+    for="center_name">Center Name:</label>
+  <span>
+    <input
+      id="center_name"
+      type="text"
+      placeholder="center_name"
+      formControlName="center_name"
+    />
+  </span>
+  <label
+    for="center_name">GSSN COMPANYID:</label>
+  <span>
+    <input
+      id="GSSN_COMPANYID"
+      type="text"
+      placeholder="GSSN_COMPANYID"
+      formControlName="GSSN_COMPANYID"
+    />
+  </span>
+  <label
+    for="center_name">GSSN OUTLETID:</label>
+  <span>
+    <input
+      id="GSSN_OUTLETID"
+      type="text"
+      placeholder="GSSN_OUTLETID"
+      formControlName="GSSN_OUTLETID"
+    />
+  </span>
+  <label
+    for="center_name">Vd Name:</label>
+  <span>
+    <input
+      id="vd_name"
+      type="text"
+      placeholder="vd_name"
+      formControlName="vd_name"
+    />
+  </span>
+  <label
+    for="center_name">Vfnr:</label>
+  <span>
+    <input
+      id="vfnr"
+      type="text"
+      placeholder="vfnr"
+      formControlName="vfnr"
+    />
+  </span>
+  <label
+    for="center_name">Vfnr_hb:</label>
+  <span>
+    <input
+      id="vfnr_hb"
+      type="text"
+      placeholder="vfnr_hb"
+      formControlName="vfnr_hb"
+    />
+  </span>
+  <label
+    for="center_name">Mode:</label>
+  <span>
+    <input
+      id="mode"
+      type="text"
+      placeholder="mode"
+      formControlName="mode"
+    />
+  </span>
+  <label
+    for="center_name">Sortorder:</label>
+  <span>
+    <input
+      id="sortorder"
+      type="text"
+      placeholder="sortorder"
+      formControlName="sortorder"
+    />
+  </span>
+  <label
+    for="center_name">Brand:</label>
+  <span>
+    <input
+      id="brand"
+      type="text"
+      placeholder="brand"
+      formControlName="brand"
+    />
+  </span>
+  <label
+    for="center_name">Status:</label>
+  <span>
+    <input
+      id="status"
+      type="text"
+      placeholder="status"
+      formControlName="status"
+    />
+  </span>
+  <label
+    for="center_name">Shortcut:</label>
+  <span>
+    <input
+      id="shortcut"
+      type="text"
+      placeholder="shortcut"
+      formControlName="shortcut"
+    />
+  </span>
+  <label
+    for="center_name">Company Name:</label>
+  <span>
+    <input
+      id="company_name"
+      type="text"
+      placeholder="company_name"
+      formControlName="company_name"
+    />
+  </span>
+  <label
+    for="center_name">Branch:</label>
+  <span>
+    <input
+      id="branch"
+      type="text"
+      placeholder="branch"
+      formControlName="branch"
+    />
+  </span>
+  <label
+    for="center_name">Street:</label>
+  <span>
+    <input
+      id="street"
+      type="text"
+      placeholder="street"
+      formControlName="street"
+    />
+  </span>
+  <label
+    for="center_name">Zip:</label>
+  <span>
+    <input
+      id="zip"
+      type="text"
+      placeholder="zip"
+      formControlName="zip"
+    />
+  </span>
+  <label
+    for="center_name">Place:</label>
+  <span>
+    <input
+      id="place"
+      type="text"
+      placeholder="place"
+      formControlName="place"
+    />
+  </span>
+  <label
+    for="center_name">Region:</label>
+  <span>
+    <input
+      id="region"
+      type="text"
+      placeholder="region"
+      formControlName="region"
+    />
+  </span>
+  <label
+    for="center_name">Phone:</label>
+  <span>
+    <input
+      id="phone"
+      type="text"
+      placeholder="phone"
+      formControlName="phone"
+    />
+  </span><label
+  for="center_name">Website:</label>
+  <span>
+    <input
+      id="website"
+      type="text"
+      placeholder="website"
+      formControlName="website"
+    />
+  </span>
+  <br>
+  <button [disabled]="!clientMatrixForm.valid" type="submit">Submit</button>
+</form>
+
+<div>
+  <table *ngIf="clientMatrix$ | async as clientMatrixData">
+    <thead>
+    <tr>
+      <th>brand</th>
+      <th>zip</th>
+      <th>branch</th>
+      <th>website</th>
+      <th>mode</th>
+      <th>center_name</th>
+      <th>company_name</th>
+      <th>GSSN_COMPANYID</th>
+      <th>GSSN_OUTLETID</th>
+      <th>phone</th>
+      <th>place</th>
+      <th>street</th>
+      <th>vfnr_hb</th>
+      <th>region</th>
+      <th>sortorder</th>
+      <th>vd_name</th>
+      <th>shortcut</th>
+      <th>vfnr</th>
+      <th>status</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let clientMatrix of clientMatrixData">
+      <td>{{ clientMatrix.brand }}</td>
+      <td>{{ clientMatrix.zip }}</td>
+      <td>{{ clientMatrix.branch }}</td>
+      <td>{{ clientMatrix.website }}</td>
+      <td>{{ clientMatrix.mode }}</td>
+      <td>{{ clientMatrix.center_name }}</td>
+      <td>{{ clientMatrix.company_name }}</td>
+      <td>{{ clientMatrix.GSSN_COMPANYID }}</td>
+      <td>{{ clientMatrix.GSSN_OUTLETID }}</td>
+      <td>{{ clientMatrix.phone }}</td>
+      <td>{{ clientMatrix.place }}</td>
+      <td>{{ clientMatrix.street }}</td>
+      <td>{{ clientMatrix.vfnr_hb }}</td>
+      <td>{{ clientMatrix.region }}</td>
+      <td>{{ clientMatrix.sortorder }}</td>
+      <td>{{ clientMatrix.vd_name }}</td>
+      <td>{{ clientMatrix.shortcut }}</td>
+      <td>{{ clientMatrix.vfnr }}</td>
+      <td>{{ clientMatrix.status }}</td>
+      <td>
+        <button type="button"
+                (click)="delete(clientMatrix)">Delete
+        </button><button type="button"
+                (click)="update(clientMatrix)">Update
+        </button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+<div class="alert alert-danger"
+     *ngIf="errorMessage$ | async as errorMessage">
+  {{ errorMessage }}
+</div>
