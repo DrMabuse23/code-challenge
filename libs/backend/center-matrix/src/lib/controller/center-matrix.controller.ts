@@ -1,4 +1,5 @@
-import { Body, Controller, Delete, Get, Param, Patch, Post, Put } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Patch, Post, Put, Options } from '@nestjs/common';
+
 import { LocationDto } from '../dto/location.dto';
 import { CenterMatrixService } from '../services/center-matrix.service';
 
@@ -36,5 +37,10 @@ export class CenterMatrixController {
   @Delete(':id')
   async remove(@Param('id') id: number) {
     return await this.ctrmService.remove(id).then(() => ({message: `${id} successfull deleted`}));
+  }
+
+  @Options()
+  async cors() {
+    return this.ctrmService.count();
   }
 }

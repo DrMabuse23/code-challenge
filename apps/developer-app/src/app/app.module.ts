@@ -1,13 +1,17 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
-import { NxWelcomeComponent } from './nx-welcome.component';
+import { AddComponent } from './add/add.component';
+
+import { CrudService } from './services/crud.service';
 
 @NgModule({
-  declarations: [AppComponent, NxWelcomeComponent],
-  imports: [BrowserModule],
-  providers: [],
-  bootstrap: [AppComponent],
+  imports:      [ BrowserModule, NgbModule, HttpClientModule ],
+  declarations: [ AppComponent, AddComponent ],
+  providers:    [ CrudService ],
+  bootstrap:    [ AppComponent ],
 })
 export class AppModule {}

@@ -1,1 +1,72 @@
-<tss-job-interview-nx-welcome></tss-job-interview-nx-welcome>
+<div class="wrapper">
+  <div class="container">
+
+    <div class="app-grid">
+      <div class="item-title">
+        <span class="title">
+          Developer App
+        </span>
+      </div>
+      <div class="item-buttons">
+        <div class="home-button-grid">
+          <div class="item-button-add">
+            <button class="btn btn-lg btn-primary" (click)="onAdd()">Add</button>
+          </div>
+          <div class="item-button-refresh">
+            <button class="btn btn-lg btn-primary" (click)="onRefresh()">Refresh</button>
+          </div>
+        </div>
+      </div>
+      <div class="item-matrix-content">
+        <div class="matrix-content-grid">
+          <ng-container *ngIf="(crudService.entries$ | async) as entries; else noContent">
+            <ng-container *ngIf="!!entries.length; else noContent">
+              <span style="grid-column: 1 / 2">ID</span>
+              <span style="grid-column: 2 / 3">GSSN Outlet ID</span>
+              <span style="grid-column: 3 / 4">GSSN Company ID</span>
+              <span style="grid-column: 4 / 5">VD Name</span>
+              <span style="grid-column: 5 / 6">VFNR</span>
+              <span style="grid-column: 6 / 7">VFNR HB</span>
+              <span style="grid-column: 7 / 8">Mode</span>
+              <span style="grid-column: 8 / 9">Sort Order</span>
+              <span style="grid-column: 9 / 10">Brand</span>
+              <span style="grid-column: 10 / 11">Status</span>
+              <span style="grid-column: 11 / 12">Shortcut</span>
+              <span style="grid-column: 12 / 13">Company Name</span>
+              <span style="grid-column: 13 / 14">Center Name</span>
+              <span style="grid-column: 14 / 15">Branch</span>
+              <span style="grid-column: 15 / 16">Street</span>
+              <span style="grid-column: 16 / 17">ZIP</span>
+              <span style="grid-column: 17 / 18">Place</span>
+              <span style="grid-column: 18 / 19">Region</span>
+              <span style="grid-column: 19 / 20">Phone</span>
+              <span style="grid-column: 20 / 21">Website</span>
+              <span style="grid-column: 21 / 22">Edit</span>
+              <span style="grid-column: 22 / 23">Remove</span>
+
+              <ng-container *ngFor="let entry of entries">
+                <ng-container *ngFor="let item of $any(entry) | keyvalue; let i=index">  <!-- implement custom `keyvalue` pipe to remove the `$any()` -->
+                  <span [style.grid-column]="(i+1) + ' / ' + (i+2)">
+                    {{ item.value || '-' }}
+                  </span>
+                </ng-container>
+                <span style="grid-column: 21 / 22">
+                  <button (click)="onEdit()">Edit</button>
+                  <button (click)="onRemove()">Remove</button>
+                </span>
+              </ng-container>
+            </ng-container>
+          </ng-container>
+          <ng-template #noContent>
+            <span style="grid-column: 1 / 21">
+              No entries found in database.
+            </span>
+          </ng-template>
+
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+</div>
