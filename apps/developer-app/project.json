@@ -6,7 +6,9 @@
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:browser",
-      "outputs": ["{options.outputPath}"],
+      "outputs": [
+        "{options.outputPath}"
+      ],
       "options": {
         "outputPath": "dist/apps/developer-app",
         "index": "apps/developer-app/src/index.html",
@@ -18,7 +20,10 @@
           "apps/developer-app/src/favicon.ico",
           "apps/developer-app/src/assets"
         ],
-        "styles": ["apps/developer-app/src/styles.scss"],
+        "styles": [
+          "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+          "apps/developer-app/src/styles.scss"
+        ],
         "scripts": []
       },
       "configurations": {
@@ -64,7 +69,11 @@
           "browserTarget": "developer-app:build:development"
         }
       },
-      "defaultConfiguration": "development"
+      "defaultConfiguration": "development",
+      "options": {
+        "browserTarget": "developer-app:build:development",
+        "proxyConfig": "apps/developer-app/src/proxy.conf.json"
+      }
     },
     "extract-i18n": {
       "executor": "@angular-devkit/build-angular:extract-i18n",
@@ -83,7 +92,9 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/apps/developer-app"],
+      "outputs": [
+        "coverage/apps/developer-app"
+      ],
       "options": {
         "jestConfig": "apps/developer-app/jest.config.js",
         "passWithNoTests": true

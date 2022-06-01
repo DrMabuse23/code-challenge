@@ -5,25 +5,35 @@
   "targets": {
     "build": {
       "executor": "@nrwl/node:package",
-      "outputs": ["{options.outputPath}"],
+      "outputs": [
+        "{options.outputPath}"
+      ],
       "options": {
         "outputPath": "dist/libs/backend/center-matrix",
         "tsConfig": "libs/backend/center-matrix/tsconfig.lib.json",
         "packageJson": "libs/backend/center-matrix/package.json",
         "main": "libs/backend/center-matrix/src/index.ts",
-        "assets": ["libs/backend/center-matrix/*.md"]
+        "assets": [
+          "libs/backend/center-matrix/*.md"
+        ]
       }
     },
     "lint": {
       "executor": "@nrwl/linter:eslint",
-      "outputs": ["{options.outputFile}"],
+      "outputs": [
+        "{options.outputFile}"
+      ],
       "options": {
-        "lintFilePatterns": ["libs/backend/center-matrix/**/*.ts"]
+        "lintFilePatterns": [
+          "libs/backend/center-matrix/**/*.ts"
+        ]
       }
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/backend/center-matrix"],
+      "outputs": [
+        "coverage/libs/backend/center-matrix"
+      ],
       "options": {
         "jestConfig": "libs/backend/center-matrix/jest.config.js",
         "passWithNoTests": true

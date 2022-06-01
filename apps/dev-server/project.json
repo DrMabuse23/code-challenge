@@ -5,13 +5,17 @@
   "targets": {
     "build": {
       "executor": "@nrwl/node:build",
-      "outputs": ["{options.outputPath}"],
+      "outputs": [
+        "{options.outputPath}"
+      ],
       "options": {
         "generatePackageJson": true,
         "outputPath": "dist/apps/dev-server",
         "main": "apps/dev-server/src/main.ts",
         "tsConfig": "apps/dev-server/tsconfig.app.json",
-        "assets": ["apps/dev-server/src/assets"]
+        "assets": [
+          "apps/dev-server/src/assets"
+        ]
       },
       "configurations": {
         "production": {
@@ -35,14 +39,20 @@
     },
     "lint": {
       "executor": "@nrwl/linter:eslint",
-      "outputs": ["{options.outputFile}"],
+      "outputs": [
+        "{options.outputFile}"
+      ],
       "options": {
-        "lintFilePatterns": ["apps/dev-server/**/*.ts"]
+        "lintFilePatterns": [
+          "apps/dev-server/**/*.ts"
+        ]
       }
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/apps/dev-server"],
+      "outputs": [
+        "coverage/apps/dev-server"
+      ],
       "options": {
         "jestConfig": "apps/dev-server/jest.config.js",
         "passWithNoTests": true

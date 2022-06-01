@@ -1,0 +1,66 @@
+<div class="example-container mat-elevation-z8">
+  <div class="example-loading-shade"
+       *ngIf="isLoadingResults || isRateLimitReached">
+    <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+    <div class="example-rate-limit-reached" *ngIf="isRateLimitReached">
+      GitHub's API rate limit has been reached. It will be reset in one minute.
+    </div>
+  </div>
+
+  <div class="example-table-container">
+    <table mat-table [dataSource]="data" class="matrix-table"
+           matSort matSortActive="id" matSortDisableClear matSortDirection="desc">
+
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef>#</th>
+        <td mat-cell *matCellDef="let row">{{row.id}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="center_name">
+        <th mat-header-cell *matHeaderCellDef>Center Name</th>
+        <td mat-cell *matCellDef="let row">{{row.center_name}}</td>
+      </ng-container>
+
+´      <ng-container matColumnDef="company_name">
+        <th mat-header-cell *matHeaderCellDef>Company Name</th>
+        <td mat-cell *matCellDef="let row">{{row.company_name}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="branch">
+        <th mat-header-cell *matHeaderCellDef>Branch</th>
+        <td mat-cell *matCellDef="let row">{{row.branch}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="brand">
+        <th mat-header-cell *matHeaderCellDef>Brand</th>
+        <td mat-cell *matCellDef="let row">{{row.brand}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="address">
+        <th mat-header-cell *matHeaderCellDef>Street</th>
+        <td mat-cell *matCellDef="let row">{{row.street}}<br />{{row.zip}} {{row.place}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="phone">
+        <th mat-header-cell *matHeaderCellDef>Phonenumber</th>
+        <td mat-cell *matCellDef="let row">{{row.phone}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="website">
+        <th mat-header-cell *matHeaderCellDef>Website</th>
+        <td mat-cell *matCellDef="let row">{{row.website}}</td>
+      </ng-container>
+
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+
+  <mat-paginator [pageSize]="30"></mat-paginator>
+</div>
+
+
+<!-- Copyright 2019 Google Inc. All Rights Reserved.
+    Use of this source code is governed by an MIT-style license that
+    can be found in the LICENSE file at http://angular.io/license -->
