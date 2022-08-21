@@ -1,0 +1,25 @@
+<body>
+  <h2>Matrixes</h2>
+  <button class="edit-button"><a routerLink="/createMatrix">Create Matrix</a></button>
+  <table>
+    <tr>
+      <th>id</th>
+      <th>name</th>
+      <th>mode</th>
+      <th>brand</th>
+      <th>phone</th>
+      <th>place</th>
+    </tr>
+
+      <tr *ngFor="let mat of matrixs" class="">
+        <td>{{mat.id}}</td>
+        <td>{{mat.center_name}}</td>
+        <td>{{mat.mode}}</td>
+        <td>{{mat.brand}}</td>
+        <td>{{mat.phone}}</td>
+        <td>{{mat.place}}</td>
+        <td> <button class="edit-button">Edit</button></td>
+        <td><button class="delete-button" (click)="deleteMatrixs(mat)">Delete</button></td>
+      </tr>
+  </table>
+</body>

@@ -2,6 +2,7 @@ import { Body, Controller, Delete, Get, Param, Patch, Post, Put } from '@nestjs/
 import { LocationDto } from '../dto/location.dto';
 import { CenterMatrixService } from '../services/center-matrix.service';
 
+
 @Controller('center-matrix')
 export class CenterMatrixController {
   constructor(private readonly ctrmService: CenterMatrixService) {}
